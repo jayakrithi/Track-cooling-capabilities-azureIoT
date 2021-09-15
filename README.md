@@ -25,7 +25,10 @@ Create a programming project to simulate a refrigerated truck, with routes selec
 5. visual studio code 
 
 ## Outcomes 
+When we simulate the trucks through our application app.js, we can see that the data is been sent to the IoT Central Hub.
 ![Test_app](Test_app.PNG)
 
+Using the Central Hub we will also be able to track the content's temperature and its various other telemetry attributes by 
+using the dashboard views.
 ![IoT CentralHub portal](Track_on_IoTCentral.PNG)
 
