@@ -1,6 +1,6 @@
 ﻿# Track-cooling-Capabilities-azureIoT
  
- This project is inspired from the Azure IoT Learning Path to creating a basic Azure IoT app. 
+ This project is inspired from the [Azure IoT Learning Path to creating a basic Azure IoT app](https://docs.microsoft.com/en-us/learn/modules/create-your-first-iot-central-app/1-introduction) . 
  
  ## Objective 
  The main objective is to create an application on IoT Central Hub which has the capabilities of tracking mulitple devices from different geo locations. 
@@ -23,3 +23,9 @@ Create a programming project to simulate a refrigerated truck, with routes selec
 3. npm - node package manager 
 4. nodejs
 5. visual studio code 
+
+## Outcomes 
+![Test_app](Test_app.PNG)
+
+![IoT CentralHub portal](Track_on_IoTCentral.PNG)
+
