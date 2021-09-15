@@ -201,3 +201,49 @@ function GetRoute(newState) {
         eventText = "Failed to find map route";
     });
 }
+
+function CmdGoToCustomer(request, response) {
+
+    // Pick up a variable from the request payload. 
+    var num = request.payload;
+
+    // Check for valid customer ID. 
+    if (num >= 0 && num < customer.length) {
+        switch (state) {
+            case stateEnum.dumping:
+            case stateEnum.loading:
+            case stateEnum.delivering:
+                eventText = "Unable to act - " + state;
+                break;
+            case stateEnum.ready:
+            case stateEnum.enroute:
+            case stateEnum.returning:
+                if (contents === contentsEnum.empty) {
+                    eventText = "Unable to act - empty";
+                }
+                else {
+
+                    // Set new customer event only when all is good. 
+                    eventText = "New customer: " + num.toString();
+                    destinationLat = customer[num][0];
+                    destinationLon = customer[num][1];
+
+                    // Find route from current position to destination, and store route. 
+                    GetRoute(stateEnum.enroute);
+                }
+                break;
+        }
+    }
+    else {
+        eventText = "Invalid customer: " + num;
+    }
+
+    // Acknowledge the command. 
+    response.send(200, 'Success', function (errorMessage) {
+
+        // Failure 
+        if (errorMessage) {
+            redMessage('Failed sending a CmdGoToCustomer response:\n' + errorMessage.message);
+        }
+    });
+}
